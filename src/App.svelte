@@ -12,42 +12,42 @@
 		activeItem = e.detail;
 	}
 
-	let polls = [
-		{
-			id: 2,
-			question: "Are you better on Ppython or JavaScript?",
-			answerA: "Python",
-			answerB: "JavaScript",
-			voteA: 10,
-			voteB: 12,
-		}
-	]
+	// let polls = [
+	// 	{
+	// 		id: 2,
+	// 		question: "Are you better on Ppython or JavaScript?",
+	// 		answerA: "Python",
+	// 		answerB: "JavaScript",
+	// 		voteA: 10,
+	// 		voteB: 12,
+	// 	}
+	// ]
 
 	const handleAddNewPoll = (e) => {
-		polls = [...polls, e.detail]
+		//polls = [...polls, e.detail]
 		activeItem = ['Current Polls']
 	};
 
-	const handleVote = (e) => {
-		const {option, id} = e.detail;
-		let copiedPolls = [...polls];
-		let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
+	// const handleVote = (e) => {
+		// const {option, id} = e.detail;
+		// let copiedPolls = [...polls];
+		// let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
 
-		if (option === 'a') {
-			upvotedPoll.voteA++
-		}
-		if (option === 'b') {
-			upvotedPoll.voteB++
-		}
+		// if (option === 'a') {
+		// 	upvotedPoll.voteA++
+		// }
+		// if (option === 'b') {
+		// 	upvotedPoll.voteB++
+		// }
 
-		polls = copiedPolls;
-	}
+		// polls = copiedPolls;
+	// }
 </script>
 <Header/>
 <main>
 	<Tabs {activeItem} {items} on:tabChange={tabChange}/>
 	{#if activeItem == 'Current Polls'}
-		<PollList on:vote={handleVote}/>
+		<PollList/>
 	{:else if activeItem == 'Add New Poll'}
 		<CreatePollForm on:add={handleAddNewPoll}/>
 	{/if}
